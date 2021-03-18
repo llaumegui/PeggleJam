@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     public SetupLevel Setup;
 
     public float Score = 0;
-    public float multiplicateur = 1;;
+    public float multiplicateur = 1;
     public int ReversePower;
 
     public int Targets;
