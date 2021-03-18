@@ -25,10 +25,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363107809266352705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
-  m_LocalScale: {x: 0.5044739, y: 1.5872915, z: 1}
+  m_LocalPosition: {x: 0, y: -0.47300002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6242411547058009606}
+  m_Father: {fileID: 6939477657420445251}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3807588540521707147
@@ -81,6 +81,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1406015057539749502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6939477657420445251}
+  m_Layer: 0
+  m_Name: Tip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6939477657420445251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406015057539749502}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.7507889, z: 0}
+  m_LocalScale: {x: 0.5044739, y: 1.5872915, z: 1}
+  m_Children:
+  - {fileID: 4142224583269642763}
+  m_Father: {fileID: 5686077560027611679}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6727770892037243863
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +123,7 @@ GameObject:
   - component: {fileID: 6242411547058009606}
   - component: {fileID: 5143556576492191540}
   m_Layer: 0
-  m_Name: Shoot
+  m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,8 +140,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4142224583269642763}
   - {fileID: 8383651863220131421}
+  - {fileID: 5686077560027611679}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,6 +157,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38f5a886dfb79f48a74df8c61043a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShootKey: 32
+  BallPrefab: {fileID: 7402827456415303560, guid: 61700eddeb1d7ca4d84b4b8c462442bb,
+    type: 3}
+  BaseCanon: {fileID: 5686077560027611679}
+  CanonTip: {fileID: 6939477657420445251}
+  MaxShootValue: 10
+  ChargeSpeed: 1
+  AimPosition: {x: 0, y: 0}
 --- !u!1 &8078013574429919145
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +194,7 @@ Transform:
   m_LocalScale: {x: 0.5044739, y: 2.36, z: 1}
   m_Children: []
   m_Father: {fileID: 6242411547058009606}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!212 &6741731585043428799
 SpriteRenderer:
@@ -207,3 +246,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8242806010499888691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5686077560027611679}
+  m_Layer: 0
+  m_Name: BaseCannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5686077560027611679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242806010499888691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6939477657420445251}
+  m_Father: {fileID: 6242411547058009606}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
