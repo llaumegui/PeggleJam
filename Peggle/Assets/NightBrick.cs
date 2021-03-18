@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BrickBehaviour : MonoBehaviour
+public class NightBrick : BrickBehaviour
 {
-	public abstract void Effect();
+	public override void Effect()
+	{
+
+	}
 }
