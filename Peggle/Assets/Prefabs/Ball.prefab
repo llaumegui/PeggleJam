@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2117443958208950508}
   - component: {fileID: 6885399902455334014}
   - component: {fileID: 1321474361232560984}
+  - component: {fileID: 7389694991001637815}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7402827456415303560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9bb48d4e166fa5343a7fa65736f807f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc05d8e34088d214d8d7402d81be052b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,3 +121,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &7389694991001637815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7402827456415303560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2819b85e7d7993746b9d40bc1b0c90d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDestroyed: 0

@@ -24,7 +24,7 @@ public class Shoot : MonoBehaviour
     float _chargeLerp;
     float _chargeValue;
 
-    public Vector2 AimPosition;
+    public Vector2 AimPosition = new Vector2();
 
 
     // Update is called once per frame
@@ -61,6 +61,7 @@ public class Shoot : MonoBehaviour
             Debug.Log("BallDetected");
             ballRb.AddForce(AimPosition.normalized * MaxShootValue * _chargeValue);
 		}
+        GameManager.Instance.CurrentBall = ball.GetComponent<Ball>();
 	}
 
 	private void Charge()
@@ -72,7 +73,7 @@ public class Shoot : MonoBehaviour
 
 	private void CheckCanShoot()
 	{
-        if (GameMaster.Instance.CurrentBall == null)
+        if (GameManager.Instance.CurrentBall == null)
             _canShoot = true;
         else
 		{

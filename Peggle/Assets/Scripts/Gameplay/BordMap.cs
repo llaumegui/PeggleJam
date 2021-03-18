@@ -22,9 +22,14 @@ public class BordMap : MonoBehaviour
             if (currentSide == side.bottom)
             {
                 Destroy(collision.gameObject);
-                GameManager.Instance.currentBall = null;
+                GameManager.Instance.CurrentBall = null;
                 _manager.LoseLife(1);
             }
+            else if (currentSide == side.top)
+            {
+                _manager.StopPower();
+            }
+
         }
     }
 }

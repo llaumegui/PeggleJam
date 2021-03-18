@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3457443843955656735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821380879542456411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55473b9e2200ce4eb0a643eed9f4062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3657578056123323251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,6 +99,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5763314891451194117, guid: 483afde7944676049a29c919ea859188,
+        type: 3}
+      propertyPath: InstantEffect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7185634804718982484, guid: 483afde7944676049a29c919ea859188,
         type: 3}
       propertyPath: m_Color.r
@@ -104,3 +121,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 483afde7944676049a29c919ea859188, type: 3}
+--- !u!1 &821380879542456411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4153570460825781032, guid: 483afde7944676049a29c919ea859188,
+    type: 3}
+  m_PrefabInstance: {fileID: 3657578056123323251}
+  m_PrefabAsset: {fileID: 0}

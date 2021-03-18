@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BrickBehaviour
+public abstract class BrickBehaviour : MonoBehaviour
 {
 	public abstract void Effect();
 }

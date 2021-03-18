@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-
     bool _enlighten;
 
     [Space]
@@ -12,22 +11,29 @@ public class Brick : MonoBehaviour
     public float ScoreValue;
     public int Resistance = 1;
 
+    public bool InstantEffect;
+
 
     // Update is called once per frame
     void Update()
     {
         if(_enlighten)
 		{
-            if (GameMaster.Instance.CurrentBall.IsDestroyed)
+            if (GameManager.Instance.CurrentBall==null)
             {
                 Resistance--;
                 if (Resistance <= 0)
                     EndBrick();
 
-                if (TryGetComponent(out BrickBehaviour behaviour))
+                if (TryGetComponent(out BrickBehaviour behaviour) && !InstantEffect)
                 {
-                    //
+                    behaviour.Effect();
                 }
+            }
+
+            if (TryGetComponent(out BrickBehaviour b) && InstantEffect)
+            {
+                b.Effect();
             }
 
             transform.GetChild(0).gameObject.SetActive(true);
@@ -53,17 +59,19 @@ public class Brick : MonoBehaviour
                 //changeImpulse;
 			}
 		}
+
+        if (collision.gameObject.tag == "Explosion")
+            EndBrick();
 	}
 
     void EndBrick()
 	{
-        GameMaster.Instance.Score += ScoreValue;
+        //GameManager.Instance.Score += ScoreValue;
 
-        if(GameMaster.Instance.TargetBricks.Contains(this))
-		{
-            GameMaster.Instance.TargetBricks.Remove(this);
-		}
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        gameObject.GetComponent<Renderer>().enabled = false;
 
-        Destroy(gameObject);
-	}
+        transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false;
+        transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
+    }
 }
