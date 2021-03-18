@@ -7,6 +7,10 @@ public class Shoot : MonoBehaviour
 {
     public KeyCode ShootKey;
 
+    public GameObject BallPrefab;
+    public Transform BaseCanon;
+    public Transform CanonTip;
+
     [Space]
     [Header("Values")]
     public float MaxShootValue;
@@ -19,6 +23,8 @@ public class Shoot : MonoBehaviour
 
     float _chargeLerp;
     float _chargeValue;
+
+    public Vector2 AimPosition;
 
 
     // Update is called once per frame
@@ -41,12 +47,20 @@ public class Shoot : MonoBehaviour
 
 	private void Aim()
 	{
-		throw new NotImplementedException();
+        AimPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Debug.Log("MousePos :" + Input.mousePosition);
+        float angle = Vector2.SignedAngle(Vector2.up, AimPosition);
+        BaseCanon.rotation = Quaternion.Euler(0, 0, angle);
 	}
 
 	private void ShootBall()
 	{
-		throw new NotImplementedException();
+        GameObject ball = Instantiate(BallPrefab, CanonTip.position, Quaternion.identity);
+        if(ball.TryGetComponent(out Rigidbody2D ballRb))
+		{
+            Debug.Log("BallDetected");
+            ballRb.AddForce(AimPosition.normalized * MaxShootValue * _chargeValue);
+		}
 	}
 
 	private void Charge()

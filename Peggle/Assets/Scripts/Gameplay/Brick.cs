@@ -10,21 +10,28 @@ public class Brick : MonoBehaviour
     [Space]
     [Header("Value")]
     public float ScoreValue;
+    public int Resistance = 1;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(_enlighten && GameMaster.Instance.CurrentBall.IsDestroyed)
+        if(_enlighten)
 		{
-            EndBrick();
-		}
+            if (GameMaster.Instance.CurrentBall.IsDestroyed)
+            {
+                Resistance--;
+                if (Resistance <= 0)
+                    EndBrick();
+
+                if (TryGetComponent(out BrickBehaviour behaviour))
+                {
+                    //
+                }
+            }
+
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
 	private void OnCollisionEnter2D(Collision2D collision)
