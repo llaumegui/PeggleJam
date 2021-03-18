@@ -25,6 +25,11 @@ public class BordMap : MonoBehaviour
                 GameManager.Instance.currentBall = null;
                 _manager.LoseLife(1);
             }
+            else if (currentSide == side.top)
+            {
+                _manager.StopPower();
+            }
+
         }
     }
 }

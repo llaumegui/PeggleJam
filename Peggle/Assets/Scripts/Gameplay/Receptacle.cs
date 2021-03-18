@@ -19,8 +19,14 @@ public class Receptacle : MonoBehaviour
 
     private void Update()
     {
-        if (startingPos >= 1 || startingPos <= 0)
+        if (startingPos >= 1)
         {
+            startingPos = 1;
+            step *= -1;
+        }
+        if (startingPos <= 0)
+        {
+            startingPos = 0;
             step *= -1;
         }
     }

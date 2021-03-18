@@ -61,6 +61,7 @@ public class Shoot : MonoBehaviour
             Debug.Log("BallDetected");
             ballRb.AddForce(AimPosition.normalized * MaxShootValue * _chargeValue);
 		}
+        GameManager.Instance.currentBall = ball.GetComponent<Ball>();
 	}
 
 	private void Charge()
@@ -72,7 +73,7 @@ public class Shoot : MonoBehaviour
 
 	private void CheckCanShoot()
 	{
-        if (GameMaster.Instance.CurrentBall == null)
+        if (GameManager.Instance.currentBall == null)
             _canShoot = true;
         else
 		{

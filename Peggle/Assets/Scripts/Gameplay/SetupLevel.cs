@@ -7,4 +7,5 @@ using UnityEngine;
 public class SetupLevel : ScriptableObject
 {
     public int Lives;
+    public float ReverseGravityTime = 3;
 }
