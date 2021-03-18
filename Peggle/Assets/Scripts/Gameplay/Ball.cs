@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public bool IsDestroyed;
+    private LevelManager _manager;
+
+    private void Awake()
+    {
+        _manager = FindObjectOfType<LevelManager>();
+    }
+
+    private void OnDestroy()
+    {
+        _manager.multiplicateur = 1;
+    }
 
 
 }

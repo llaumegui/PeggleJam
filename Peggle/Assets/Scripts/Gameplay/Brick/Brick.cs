@@ -8,11 +8,18 @@ public class Brick : MonoBehaviour
 
     [Space]
     [Header("Value")]
-    public float ScoreValue;
+    public int ScoreValue;
     public int Resistance = 1;
 
     public bool InstantEffect;
 
+
+    private LevelManager _manager;
+
+    private void Awake()
+    {
+        _manager = FindObjectOfType<LevelManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -66,7 +73,8 @@ public class Brick : MonoBehaviour
 
     void EndBrick()
 	{
-        //GameManager.Instance.Score += ScoreValue;
+        _manager.AddScore(ScoreValue);
+        _manager.multiplicateur += 0.2f;
 
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.GetComponent<Renderer>().enabled = false;
