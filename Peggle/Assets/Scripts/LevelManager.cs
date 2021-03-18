@@ -34,6 +34,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void AddScore(int value)
+    {
+        Score += value;
+        _hud.newScore += value;
+    }
+
     public void GainALIfe(int value)
     {
         _life += value;

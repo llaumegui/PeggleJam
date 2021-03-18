@@ -956,6 +956,11 @@ PrefabInstance:
       propertyPath: Spawner
       value: 
       objectReference: {fileID: 265164944}
+    - target: {fileID: 6222056555526240222, guid: 0270881fcd487d94da86cc8d21f00fc7,
+        type: 3}
+      propertyPath: scoreToLifeUp
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 8080982287782615551, guid: 0270881fcd487d94da86cc8d21f00fc7,
         type: 3}
       propertyPath: m_EdgeRadius

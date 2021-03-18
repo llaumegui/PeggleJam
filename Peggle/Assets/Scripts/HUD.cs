@@ -10,8 +10,14 @@ public class HUD : MonoBehaviour
     public Text PowerText;
     public Transform Spawner;
     public GameObject Ball;
+    public int scoreToLifeUp;
+    public Transform JaugeGauche;
+    public Transform JaugeDroite;
+
+    [HideInInspector] public int newScore = 0;
 
     private LevelManager _manager;
+
 
     private void Awake()
     {
@@ -44,6 +50,16 @@ public class HUD : MonoBehaviour
         ScoreText.text = Mathf.Floor(_manager.Score).ToString();
         MultiText.text = _manager.multiplicateur.ToString("F2");
         PowerText.text = _manager.ReversePower.ToString();
+
+
+        int JaugeGPos = -530 + (460 * (newScore/scoreToLifeUp));
+        JaugeGauche.position = new Vector3(JaugeGauche.position.x, JaugeGPos, JaugeGauche.position.z);
+
+        if (newScore >= scoreToLifeUp)
+        {
+            newScore = 0;
+            _manager.GainALIfe(1);
+        }
     }
 
 }
