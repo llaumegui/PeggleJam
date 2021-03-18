@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public List<Object> Levels = new List<Object>();
 
+    [HideInInspector] public Ball currentBall;
     void Awake()
     {
         if (_instance != null && _instance != this)
