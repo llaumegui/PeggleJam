@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-
     bool _enlighten;
 
     [Space]
@@ -20,7 +19,7 @@ public class Brick : MonoBehaviour
     {
         if(_enlighten)
 		{
-            if (GameMaster.Instance.CurrentBall==null)
+            if (GameManager.Instance.CurrentBall==null)
             {
                 Resistance--;
                 if (Resistance <= 0)
@@ -67,14 +66,12 @@ public class Brick : MonoBehaviour
 
     void EndBrick()
 	{
-        GameMaster.Instance.Score += ScoreValue;
-
-        if(GameMaster.Instance.TargetBricks.Contains(this))
-		{
-            GameMaster.Instance.TargetBricks.Remove(this);
-		}
+        //GameManager.Instance.Score += ScoreValue;
 
         gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.GetComponent<Renderer>().enabled = false;
-	}
+
+        transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false;
+        transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
+    }
 }

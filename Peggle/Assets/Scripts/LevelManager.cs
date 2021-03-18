@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
     public float multiplicateur;
     public int ReversePower;
 
+    public int Targets;
+
     [HideInInspector] public Coroutine coroutine;
 
     private int _life;

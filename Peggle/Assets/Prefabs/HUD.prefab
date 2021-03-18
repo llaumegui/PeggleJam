@@ -933,5 +933,7 @@ MonoBehaviour:
   PowerText: {fileID: 2032298035633456203}
   Spawner: {fileID: 0}
   Ball: {fileID: 7402827456415303560, guid: 61700eddeb1d7ca4d84b4b8c462442bb, type: 3}
+  scoreToLifeUp: 3000
   JaugeGauche: {fileID: 4270950285554208752}
   JaugeDroite: {fileID: 5558586497472370810}
+  newScore: 0

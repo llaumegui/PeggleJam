@@ -12,6 +12,6 @@ public class StackBrick : BrickBehaviour
 
 		Color.RGBToHSV(EnlightenRenderer.color,out float h, out float s, out float v);
 
-		EnlightenRenderer.color = Color.HSVToRGB(h, s, v + .25f);
+		EnlightenRenderer.color = Color.HSVToRGB(h, s, v + .1f);
 	}
 }

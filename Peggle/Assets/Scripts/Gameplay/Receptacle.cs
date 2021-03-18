@@ -45,7 +45,7 @@ public class Receptacle : MonoBehaviour
         if (collision.transform.tag == "Ball")
         {
             Destroy(collision.gameObject);
-            GameManager.Instance.currentBall = null;
+            GameManager.Instance.CurrentBall = null;
         }
     }
 
