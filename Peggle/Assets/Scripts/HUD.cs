@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
     public Transform Spawner;
     public GameObject Ball;
     public int scoreToLifeUp;
+    public float multiMax;
     public Transform JaugeGauche;
     public Transform JaugeDroite;
 
@@ -54,6 +55,9 @@ public class HUD : MonoBehaviour
 
         int JaugeGPos = -530 + (460 * (newScore/scoreToLifeUp));
         JaugeGauche.position = new Vector3(JaugeGauche.position.x, JaugeGPos, JaugeGauche.position.z);
+
+        float JaugeDPos = -700 + (640 * (_manager.multiplicateur/multiMax));
+        JaugeDroite.position = new Vector3(JaugeDroite.position.x, JaugeDPos, JaugeDroite.position.z);
 
         if (newScore >= scoreToLifeUp)
         {
