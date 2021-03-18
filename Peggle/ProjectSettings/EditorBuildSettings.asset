@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level1.unity
     guid: 973da8e98b9dafc40af1fa14d881579c
   - enabled: 1
-    path: Assets/Scenes/Levels/LevelTest.unity
-    guid: bbd7673b82ba4d9429135771d7f9f977
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: 78f384bc83e754e4aa5222f802b07492
+  - enabled: 1
+    path: Assets/Scenes/ParticleShowCase.unity
+    guid: a7e3faeef0f51d6499527f86b12f5a6d
   m_configObjects: {}
