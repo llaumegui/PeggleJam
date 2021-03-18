@@ -24,9 +24,19 @@ public class HUD : MonoBehaviour
     {
         for (int i = 0; i < _manager.Life; i++)
         {
-            var inst = Instantiate(Ball, Spawner.position, Quaternion.identity, Spawner);
+            Instantiate(Ball, Spawner.position, Quaternion.identity, Spawner);
             yield return new WaitForSeconds(.2f);
         }
+    }
+
+    public void Spawn()
+    {
+        Instantiate(Ball, Spawner.position, Quaternion.identity, Spawner);
+    }
+
+    public void LooseALife()
+    {
+        Destroy(Spawner.GetChild(0).gameObject);
     }
 
     private void Update()
@@ -34,16 +44,6 @@ public class HUD : MonoBehaviour
         ScoreText.text = Mathf.Floor(_manager.Score).ToString();
         MultiText.text = _manager.multiplicateur.ToString("F2");
         PowerText.text = _manager.ReversePower.ToString();
-
-        /*while (Spawner.childCount > _manager.Life)
-        {
-            Destroy(Spawner.GetChild(0).gameObject);
-        }
-
-        while (Spawner.childCount < _manager.Life)
-        {
-            Instantiate(Ball, Spawner.position, Quaternion.identity, Spawner);
-        }*/
     }
 
 }

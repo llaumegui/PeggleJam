@@ -15,18 +15,29 @@ public class LevelManager : MonoBehaviour
     private int _life;
     public int Life { get { return _life; } }
 
+    private HUD _hud;
+
 
     private void Awake()
     {
         _life = Setup.Lives;
+
+        _hud = FindObjectOfType<HUD>();
     }
     public void LoseLife(int value)
     {
         if (value <= _life)
         {
             _life -= value;
+            _hud.LooseALife();
             // if plus de vie fin de la partie
         }
+    }
+
+    public void GainALIfe(int value)
+    {
+        _life += value;
+        _hud.Spawn();
     }
 
     private void Update()
