@@ -11,10 +11,13 @@ public class Receptacle : MonoBehaviour
     private LevelManager _manager;
     private Rigidbody2D _rb;
 
+    public static int FreezeValue=1;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _manager = FindObjectOfType<LevelManager>();
+        FreezeValue = 1;
     }
 
     private void Update()
@@ -28,7 +31,7 @@ public class Receptacle : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position = path.GetPoint(startingPos);
-        startingPos += step;
+        startingPos += step * FreezeValue;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,4 +42,7 @@ public class Receptacle : MonoBehaviour
             GameManager.Instance.currentBall = null;
         }
     }
+
+
+    // remettre la freeze value a 1 si le level est terminé
 }

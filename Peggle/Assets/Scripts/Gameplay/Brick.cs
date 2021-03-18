@@ -12,22 +12,29 @@ public class Brick : MonoBehaviour
     public float ScoreValue;
     public int Resistance = 1;
 
+    public bool InstantEffect;
+
 
     // Update is called once per frame
     void Update()
     {
         if(_enlighten)
 		{
-            if (GameMaster.Instance.CurrentBall.IsDestroyed)
+            if (GameMaster.Instance.CurrentBall==null)
             {
                 Resistance--;
                 if (Resistance <= 0)
                     EndBrick();
 
-                if (TryGetComponent(out BrickBehaviour behaviour))
+                if (TryGetComponent(out BrickBehaviour behaviour) && !InstantEffect)
                 {
-                    //
+                    behaviour.Effect();
                 }
+            }
+
+            if (TryGetComponent(out BrickBehaviour b) && InstantEffect)
+            {
+                b.Effect();
             }
 
             transform.GetChild(0).gameObject.SetActive(true);
@@ -53,6 +60,9 @@ public class Brick : MonoBehaviour
                 //changeImpulse;
 			}
 		}
+
+        if (collision.gameObject.tag == "Explosion")
+            EndBrick();
 	}
 
     void EndBrick()
@@ -64,6 +74,7 @@ public class Brick : MonoBehaviour
             GameMaster.Instance.TargetBricks.Remove(this);
 		}
 
-        Destroy(gameObject);
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        gameObject.GetComponent<Renderer>().enabled = false;
 	}
 }
