@@ -97,6 +97,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5763314891451194117, guid: 483afde7944676049a29c919ea859188,
         type: 3}
+      propertyPath: ScoreValue
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763314891451194117, guid: 483afde7944676049a29c919ea859188,
+        type: 3}
       propertyPath: InstantEffect
       value: 1
       objectReference: {fileID: 0}

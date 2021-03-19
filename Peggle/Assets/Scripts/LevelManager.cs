@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -32,8 +33,18 @@ public class LevelManager : MonoBehaviour
         {
             _life -= value;
             _hud.LooseALife();
-            // if plus de vie fin de la partie
+            if (_life <= 0)
+            {
+                StartCoroutine(Lost());
+            }
         }
+    }
+
+    IEnumerator Lost()
+    {
+        _hud.CanvasLost.SetActive(true);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Menu");
     }
 
     public void AddScore(int value)

@@ -15,6 +15,8 @@ public class HUD : MonoBehaviour
     public Transform JaugeGauche;
     public Transform JaugeDroite;
 
+    public GameObject CanvasLost;
+
     [HideInInspector] public int newScore = 0;
 
     private LevelManager _manager;
@@ -23,7 +25,7 @@ public class HUD : MonoBehaviour
     private void Awake()
     {
         _manager = FindObjectOfType<LevelManager>();
-
+        CanvasLost.SetActive(false);
         StartCoroutine(SpawnLife());
     }
 

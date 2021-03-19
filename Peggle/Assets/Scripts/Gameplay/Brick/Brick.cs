@@ -15,6 +15,7 @@ public class Brick : MonoBehaviour
 
 
     private LevelManager _manager;
+    private int touched = 0;
 
     private void Awake()
     {
@@ -24,9 +25,9 @@ public class Brick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_enlighten)
-		{
-            if (GameManager.Instance.CurrentBall==null)
+        if (_enlighten)
+        {
+            if (GameManager.Instance.CurrentBall == null)
             {
                 Resistance--;
                 if (Resistance <= 0)
@@ -47,39 +48,49 @@ public class Brick : MonoBehaviour
         }
     }
 
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if(collision.gameObject.tag == "Ball")
-		{
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            touched++;
             _enlighten = true;
 
-            if(collision.gameObject.TryGetComponent(out Rigidbody2D ballRb))
-			{
+            if (collision.gameObject.TryGetComponent(out Rigidbody2D ballRb))
+            {
                 Vector2 normalSum = new Vector2();
-                for(int i =0;i<collision.contactCount;i++)
-				{
+                for (int i = 0; i < collision.contactCount; i++)
+                {
                     normalSum += collision.contacts[i].normal;
-				}
+                }
 
                 normalSum /= collision.contactCount;
+                _manager.multiplicateur += 0.2f;
+                if (touched < 7)
+                    ballRb.AddForce(-normalSum * 250);
+                else
+                {
+                    normalSum = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+                    ballRb.AddForce(-normalSum * 250);
+                }
 
                 //changeImpulse;
-			}
-		}
+            }
+        }
 
         if (collision.gameObject.tag == "Explosion")
             EndBrick();
-	}
+    }
 
     void EndBrick()
-	{
+    {
         _manager.AddScore(ScoreValue);
-        _manager.multiplicateur += 0.2f;
 
-        gameObject.GetComponent<Collider2D>().enabled = false;
+        /*gameObject.GetComponent<Collider2D>().enabled = false;
         gameObject.GetComponent<Renderer>().enabled = false;
 
         transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false;
-        transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
+        transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;*/
+
+        Destroy(gameObject);
     }
 }

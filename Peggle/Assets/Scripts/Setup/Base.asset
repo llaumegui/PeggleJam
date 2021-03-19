@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0934c16344ff95344abd845b6447be86, type: 3}
   m_Name: Base
   m_EditorClassIdentifier: 
-  Lives: 3
+  Lives: 4
+  ReverseGravityTime: 3
